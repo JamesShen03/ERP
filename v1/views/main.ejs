@@ -1,0 +1,40 @@
+<% include partials/header%>
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>This will be the main menu</h1>
+             <p>
+                <a class="btn btn-primary btn-large" href="/main">Placeholder</a>
+             </p>
+         </div>
+     </header>
+     <%if(currentUser.activation==="one"){%>
+        <p>Awaiting activation by admin!</p>
+        
+    <% } else{%>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% currentUser.functions.forEach(function(funct){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   
+                   <div class="caption">
+                       <h4><%= funct %></h4>
+                   </div>
+                   <p>
+                       <a href="/<%= funct %>" class="btn btn-primary">Enter</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+   
+    <% }%>
+    
+    
+    
+</div>
+
+
+<% include partials/footer%>

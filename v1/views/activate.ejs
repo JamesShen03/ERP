@@ -1,0 +1,25 @@
+<% include partials/header%>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Approve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <form action="/activate?_method=PUT"  method="POST">
+    <% users.forEach(function(user){ %>
+            <tr>
+                <td> <%= user.firstname %> </td>
+                <td> <%= user.lastname %> </td>
+                <td> <%= user.auth %> </td>
+                <td><button class="btn btn-lg btn-primary btn-block"  value="<%=user._id %>"name="approved">Approve</button></td>
+            </tr>
+
+        <% }); %>
+    </form>
+  </tbody>
+</table>
+<% include partials/footer%>
